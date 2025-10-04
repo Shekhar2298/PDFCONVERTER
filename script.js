@@ -216,6 +216,72 @@ function convertToPDF() {
     });
 }
 
+// SEO: Track conversions and user engagement
+class SEOAnalytics {
+    constructor() {
+        this.conversionCount = 0;
+        this.init();
+    }
+
+    init() {
+        // Track conversions
+        document.getElementById('convertBtn').addEventListener('click', () => {
+            this.trackConversion();
+        });
+
+        // Track downloads
+        document.getElementById('downloadBtn').addEventListener('click', () => {
+            this.trackDownload();
+        });
+    }
+
+    trackConversion() {
+        this.conversionCount++;
+        // You can send this data to analytics
+        console.log(`Conversion tracked: ${this.conversionCount}`);
+    }
+
+    trackDownload() {
+        // Track successful downloads
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'download', {
+                'event_category': 'conversion',
+                'event_label': 'pdf_download'
+            });
+        }
+    }
+}
+
+// Initialize SEO analytics
+new SEOAnalytics();
+
+// Schema.org structured data for SEO
+function addStructuredData() {
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Image to PDF Converter",
+        "description": "Free online tool to convert images to PDF documents",
+        "url": "https://yourdomain.com",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "permissions": "browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(structuredData);
+    document.head.appendChild(script);
+}
+
+// Call on page load
+document.addEventListener('DOMContentLoaded', addStructuredData);
+
 function downloadPDF() {
     const pdfUrl = downloadBtn.getAttribute('data-pdf-url');
     const a = document.createElement('a');

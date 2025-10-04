@@ -309,7 +309,18 @@ footer {
     border-top: 1px solid #495057;
     color: #adb5bd;
 }
+/* Critical CSS for above-the-fold content */
+.hero, .upload-section {
+    will-change: transform;
+}
 
+/* Preload important resources */
+
+
+/* Lazy loading for images */
+.image-item img {
+    loading: lazy;
+}
 /* Responsive */
 @media (max-width: 768px) {
     .header-content {
