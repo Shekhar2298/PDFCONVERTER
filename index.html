@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImageToPDF | Convert Images to PDF Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">📄</span>
+                    <h1>ImageToPDF</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero" id="home">
+            <h2>Convert Images to PDF in Seconds</h2>
+            <p>Free online tool to convert JPG, PNG, and other image formats to PDF documents. No registration required.</p>
+            <a href="#upload" class="btn">Get Started</a>
+        </section>
+
+        <section class="upload-section" id="upload">
+            <div class="upload-area" id="dropArea">
+                <div class="upload-icon">📁</div>
+                <div class="upload-text">
+                    <h3>Drop your images here</h3>
+                    <p>or click to browse files</p>
+                </div>
+                <input type="file" id="fileInput" class="file-input" accept="image/*" multiple>
+                <button class="btn" id="browseBtn">Browse Files</button>
+            </div>
+            <div class="supported-formats">
+                <p>Supported formats: JPG, JPEG, PNG, GIF, BMP, WEBP</p>
+            </div>
+        </section>
+
+        <section class="preview-section" id="preview" style="display: none;">
+            <h3>Image Preview</h3>
+            <div class="image-list" id="imageList">
+                <!-- Images will be added here dynamically -->
+            </div>
+            <div class="image-actions">
+                <button class="btn" id="addMoreBtn">Add More Images</button>
+                <button class="btn btn-secondary" id="clearAllBtn">Clear All</button>
+            </div>
+        </section>
+
+        <section class="options-section">
+            <h3>PDF Options</h3>
+            <div class="option-group">
+                <label for="pageSize">Page Size</label>
+                <select id="pageSize">
+                    <option value="a4">A4</option>
+                    <option value="letter">Letter</option>
+                    <option value="legal">Legal</option>
+                </select>
+            </div>
+            <div class="option-group">
+                <label for="orientation">Orientation</label>
+                <select id="orientation">
+                    <option value="portrait">Portrait</option>
+                    <option value="landscape">Landscape</option>
+                </select>
+            </div>
+            <div class="option-group">
+                <label for="margin">Margin (mm)</label>
+                <input type="number" id="margin" min="0" max="50" value="10">
+            </div>
+            <div class="option-group checkbox-group">
+                <input type="checkbox" id="compress" checked>
+                <label for="compress">Compress PDF for smaller file size</label>
+            </div>
+        </section>
+
+        <section class="actions-section">
+            <button class="btn" id="convertBtn">Convert to PDF</button>
+            <button class="btn btn-secondary" id="downloadBtn" style="display: none;">Download PDF</button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ImageToPDF</h3>
+                    <p>Free online tool to convert your images to PDF documents quickly and easily.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#features">Features</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 ImageToPDF. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
